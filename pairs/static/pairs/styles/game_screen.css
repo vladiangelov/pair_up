@@ -1,0 +1,104 @@
+/* Deck and cards */
+.deck {
+  padding: 32px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+.deck .card {
+  height: 60px;
+  width: 60px;
+  background: grey;
+  font-size: 0;
+  color: rgb(31, 31, 31);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 10px 0 grey;
+  margin-bottom: 16px;
+}
+
+.deck .card.shown {
+  transform: rotateY(0);
+  background: rgb(253, 123, 76);
+  cursor: default;
+  font-size: 28px;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  color: transparent;
+}
+
+@keyframes cards-matched {
+  from {
+    background: rgb(253, 123, 76);
+  }
+  to {
+    background: transparent;
+    border: none;
+  }
+}
+
+.game-screen {
+  display: none;
+}
+
+.game-score {
+  padding: 0px 32px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 390px) {
+  .deck {
+    width: 294px;
+  }
+}
+
+@media (min-width: 500px) {
+  .deck {
+    width: 390px;
+  }
+
+  .deck .card {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media (min-width: 650px) {
+  .deck {
+    width: 540px;
+  }
+
+  .deck .card {
+    height: 110px;
+    width: 110px;
+  }
+}
+
+@media (min-width: 860px) {
+  .deck {
+    width: 660px;
+  }
+
+  .deck .card {
+    height: 150px;
+    width: 150px;
+  }
+
+  .deck .card.shown {
+    font-size: 32px;
+  }
+}

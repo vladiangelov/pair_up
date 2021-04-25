@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Pair Up{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/537a08b678.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'pairs/styles.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block script %} {% endblock %}
+  </head>
+<body>
+    <header class="navbar">
+      <h1 class="game-title">Pair Up</h1>
+      <div class="desktop-menu">
+        <ul>
+          <a href="{% url 'index' %}">
+            <li {% if request.path == '/' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Play</li>
+          </a>
+          <a href="{% url 'your_results' %}">
+            <li {% if request.path == '/your_results' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Your results</li>
+          </a>
+          <a href="{% url 'rankings' %}">
+            <li {% if request.path == '/rankings' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Rankings</li>
+          </a>
+          <a href="{% url 'rules' %}">
+            <li {% if request.path == '/rules' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Rules</li>
+          </a>
+          <a href="{% url 'settings' %}">
+            <li {% if request.path == '/settings' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Settings</li>
+          </a>
+          {% if request.user.username %}
+            <a href="{% url 'logout' %}">
+              <li class="desktop-item">Logout</li>
+            </a>
+          {% else %}
+            <a href="{% url 'login' %}">
+              <li {% if request.path == '/login' %} class="desktop-item-highlight"{% else %} class="desktop-item" {% endif %} >Login</li>
+            </a>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="desktop-menu">
+      {% if request.user.username %}
+          <p><strong>{{ request.user.nickname }}</strong></p>
+      {% else %}
+          Anonymous User
+      {% endif %}
+      </div>
+      <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+    <div class="mobile-menu-wrapper">
+      <div class="mobile-menu">
+        <ul>
+          <a href="{% url 'index' %}">
+            <li {% if request.path == '/' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Play</li>
+          </a>
+          <a href="{% url 'your_results' %}">
+            <li {% if request.path == '/your_results' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Your results</li>
+          </a>
+          <a href="{% url 'rankings' %}">
+            <li {% if request.path == '/rankings' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Rankings</li>
+          </a>
+          <a href="{% url 'rules' %}">
+            <li {% if request.path == '/rules' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Rules</li>
+          </a>
+          <a href="{% url 'settings' %}">
+            <li {% if request.path == '/settings' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Settings</li>
+          </a>
+          {% if request.user.username %}
+          <a href="{% url 'logout' %}">
+            <li class="mobile-item">Logout</li>
+          </a>
+          {% else %}
+          <a href="{% url 'login' %}">
+            <li {% if request.path == '/login' %} class="mobile-item-highlight"{% else %} class="mobile-item" {% endif %}>Login</li>
+          </a>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="my-container">{% block body %} {% endblock %}</div>
+  </body>
+  <script type="module" src="{% static 'pairs/mobileMenu.js' %}"></script>
+</html>

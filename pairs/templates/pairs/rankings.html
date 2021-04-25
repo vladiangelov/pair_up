@@ -1,0 +1,36 @@
+{% extends "pairs/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="rankings-title">Top 10 / Difficulty</div>
+    <div class="rankings">
+        <div class="ranking-category">
+            <h3>Easy</h3>
+            <ul class="ranking-list">
+            {% for score in easy_scores %}
+                <li><p>{{score.result}}</p> <p>{{score.user.nickname}}</p></a>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="ranking-category">
+            <h3>Normal</h3>
+            <ul class="ranking-list">
+                {% for score in normal_scores %}
+                <li><p>{{score.result}}</p> <p>{{score.user.nickname}}</p></a>
+                    {% endfor %}
+            </ul>
+        </div>
+        <div class="ranking-category">
+            <h3>Difficult</h3>
+            <ul class="ranking-list">
+                {% for score in difficult_scores %}
+                <li><p>{{score.result}}</p> <p>{{score.user.nickname}}</p></a>
+                    {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    
+{% endblock %}

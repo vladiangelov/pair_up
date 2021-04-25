@@ -1,0 +1,37 @@
+{% extends "pairs/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="choose-level">
+        <p>Choose a difficulty</p>
+        <ul>
+            <li class="easy-difficulty button">Easy</li>
+            <li class="normal-difficulty button">Normal</li>
+            <li class="difficult-difficulty button">Difficult</li>
+        </ul>
+    </div>
+    <div class="game-screen">
+        <div class="game-score">
+            <p>Time: <span class="timer-display">0</span></p> 
+            <p>Moves: <span class="moves">0</span></p>   
+        </div>   
+        <ul class="deck">
+        </ul>
+    </div> 
+    <div class="result-screen">
+        <div>
+            <p class="result-title">Your score</p>
+            <div class="result-content">
+                <p class="result-item">Score: <span class="result-score">00</span></p>
+                <p class="result-item">Time: <span class="result-seconds">00</span> seconds</p>
+                <p class="result-item">Moves: <span class="result-moves">00</span></p>
+            </div>
+            <a href="{% url 'index' %}"><p class="result-button">Try again</p></a>
+        </div>
+    </div>
+    <script type="module" src="{% static 'pairs/play.js' %}"></script>
+{% endblock %}
+
+{% block script %}
+    
+{% endblock %}

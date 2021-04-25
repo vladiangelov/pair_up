@@ -1,0 +1,24 @@
+{% extends "pairs/layout.html" %}
+
+{% block body %}
+
+    <h2 class="form-title">Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="custom-input">
+            <input autofocus type="text" name="email" placeholder="Username">
+        </div>
+        <div class="custom-input">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <input class="custom-input-button" type="submit" value="Login">
+    </form>
+
+    <p class="no-account">Don't have an account? <a href="{% url 'register' %}">Register here.</a></p>
+
+{% endblock %}

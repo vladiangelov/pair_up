@@ -1,0 +1,30 @@
+{% extends "pairs/layout.html" %}
+
+{% block body %}
+
+    <h2 class="form-title">Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="custom-input">
+            <input type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="custom-input">
+            <input type="nickname" name="nickname" placeholder="Nickname">
+        </div>
+        <div class="custom-input">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="custom-input">
+            <input type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="custom-input-button" type="submit" value="Register">
+    </form>
+
+    <p class="no-account">Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+
+{% endblock %}

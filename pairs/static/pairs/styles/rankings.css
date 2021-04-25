@@ -1,0 +1,60 @@
+.rankings {
+  width: 100%;
+}
+
+.rankings-title {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+
+.ranking-category {
+  text-align: center;
+}
+
+.ranking-category h3 {
+  font-size: 20px;
+  padding: 16px 0px 8px;
+}
+
+.ranking-category li {
+  width: 90%;
+  margin: 8px;
+  padding: 8px 12px;
+  background-color: rgb(194, 194, 194);
+  border-radius: 4px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ranking-list li:first-child {
+  background-color: rgb(250, 162, 0);
+  color: white;
+}
+
+.ranking-list li:nth-child(2) {
+  background-color: grey;
+  color: white;
+}
+
+.ranking-list li:nth-child(3) {
+  background-color: rgb(216, 97, 0);
+  color: white;
+}
+
+@media (min-width: 350px) and (max-width: 880px) {
+  .rankings {
+    width: 300px;
+  }
+}
+
+@media (min-width: 880px) {
+  .rankings {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ranking-category li {
+    width: 180px;
+  }
+}

@@ -1,0 +1,17 @@
+{% extends "pairs/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="your-results">
+        <p class="your-results-title">Last 10 games you played</p>
+        <ul class="your-results-list">
+        {% for score in scores %}
+            <li>{{score.result}} / {{score.difficulty.name}}</a>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block script %}
+    
+{% endblock %}
