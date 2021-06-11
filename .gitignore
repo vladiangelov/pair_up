@@ -1,3 +1,2 @@
-final_project/__pycache__/*
-pairs/__pycache__/*
-pairs/migrations/__pycache__/*
+*.pyc
+.env
