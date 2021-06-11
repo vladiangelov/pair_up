@@ -31,3 +31,9 @@
   transition: 0.2s;
   color: rgb(31, 31, 31);
 }
+
+.user-not-logged-in-notice {
+  margin-top: 20px;
+  font-size: 14px !important;
+  color: red;
+}

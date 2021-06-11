@@ -45,3 +45,8 @@
   transition: 0.2s;
   color: rgb(31, 31, 31);
 }
+
+.results-not-saved {
+  display: none;
+  color: red;
+}

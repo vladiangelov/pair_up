@@ -9,6 +9,9 @@
             <li class="normal-difficulty button">Normal</li>
             <li class="difficult-difficulty button">Difficult</li>
         </ul>
+        {% if not request.user.username %}
+            <p class="user-not-logged-in-notice">*Guest scores will not be recorded</p>
+        {% endif %}
     </div>
     <div class="game-screen">
         <div class="game-score">
@@ -21,6 +24,7 @@
     <div class="result-screen">
         <div>
             <p class="result-title">Your score</p>
+            <p class="results-not-saved">Guest results are not saved</p>
             <div class="result-content">
                 <p class="result-item">Score: <span class="result-score">00</span></p>
                 <p class="result-item">Time: <span class="result-seconds">00</span> seconds</p>

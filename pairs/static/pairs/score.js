@@ -17,7 +17,13 @@ const submitScore = (score, difficulty) => {
   fetch(url, payload)
     .then((response) => response.json())
     .then((result) => {
-      console.log(`Result score submitted`, result)
+      if (result.message == "Guest scores not saved") {
+        const resultNotSavedElement =
+          document.querySelector(".results-not-saved")
+        resultNotSavedElement.setAttribute("style", "display: block")
+      } else {
+        console.log(`Result score submitted`)
+      }
     })
 
   return false

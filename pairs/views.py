@@ -12,25 +12,18 @@ from .models import Difficulty, Score, User
 
 
 def index(request):
-
-    # Authenticated users can see the game
-    if request.user.is_authenticated:
-        return render(request, "pairs/play.html")
-
-    # Everyone else is prompted to sign in
-    else:
-        return HttpResponseRedirect(reverse("login"))
+    return render(request, "pairs/play.html")
 
 
 @csrf_exempt
-@login_required
 def submit_result(request):
-
-    # Composing a new email must be via POST
+    # If a guest user - send appropriate message
+    if not request.user.is_authenticated:
+        return JsonResponse({"message": "Guest scores not saved"}, status=201)
+    # If trying to access via GET request - send an error
     if request.method != "POST":
         return JsonResponse({"error": "POST request required."}, status=400)
 
-    # Check recipient emails
     data = json.loads(request.body)
     difficulty = Difficulty.objects.get(name=data['difficulty'])
 
