@@ -106,17 +106,7 @@ def your_results(request):
 
 
 def settings(request):
-    # Authenticated users can see their settings
-    if request.user.is_authenticated:
-        scores = Score.objects.filter(user=request.user)[:10]
-        return render(request, "pairs/settings.html", {
-            'scores': scores
-        })
-
-    # Everyone else is prompted to sign in
-    else:
-        return HttpResponseRedirect(reverse("login"))
-
+    return render(request, "pairs/settings.html")
 
 def rankings(request):
     easy_difficulty = Difficulty.objects.get(name='Easy')
